@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="/src/views/assets/weather.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="container">
+        <fieldset>
+            <form action="/weather" method="post">
+                <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+                <input type="submit" class="ghost-button" value="GET WEATHER">
+            </form>
+
+        </fieldset>
+        <div class="results">
+            <% if(weather !== null){ %>
+                <table class="weekDays">
+                    <% for( i = 0; i < data.length; i++){ %>
+                        <td class="days">
+                            <%= weather[i] %>
+                        </td>
+                        <% } %>
+                </table>
+                <table class="weatherImages">
+                    <% for(i=0; i < weatherImage.length; i++ ){ %>
+                        <td class="images"> <img src="
+                            <%= weatherImage[i] %>
+                        ">
+                        </td>
+                        <% } %>
+                </table>
+                <% } %>
+
+                    <% if(error !== null){ %>
+                        <p>
+                            <%= error %>
+                        </p>
+                        <% } %>
+        </div>
+
+    </div>
+</body>
+
+</html>
