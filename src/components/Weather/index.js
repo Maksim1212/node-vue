@@ -4,7 +4,7 @@ const defaultError = 'An error has occurred';
 const apiKey = 'c3e58021321d178c2b55d2533301f39b';
 const imageUri = 'https://openweathermap.org/img/wn/';
 const imageFormat = '@2x.png';
-const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 function weatherPage(req, res, next) {
     try {
@@ -16,6 +16,23 @@ function weatherPage(req, res, next) {
         return next(error);
     }
 }
+
+/**
+ * @function renameKeys
+ * @param {express.Request} dayName && weatherImage
+ * @param {express.Response} return object where keys is days names and values is weatherImages
+ * @returns {Promise < object >}
+ */
+
+const renameKeys = (keysMap, obj) => Object
+    .keys(obj)
+    .reduce((acc, key) => ({
+        ...acc,
+        ... {
+            [keysMap[key] || key]: obj[key],
+        },
+    }), {});
+
 
 async function getWeather(req, res, next) {
     const { city } = req.body;
@@ -40,16 +57,8 @@ async function getWeather(req, res, next) {
     }
     const dayName = Object.values(dayNameObj); // take values from the object with the names of the days
     const weatherImage = Object.values(weatherImageObj); // take values from the object with the images uri
-    console.log(dayName);
-    const renameKeys = (keysMap, obj) => Object
-        .keys(obj)
-        .reduce((acc, key) => ({
-            ...acc,
-            ... {
-                [keysMap[key] || key]: obj[key],
-            },
-        }), {});
-    console.log(city);
+    // console.log(dayName);
+    // console.log(city);
     // console.log(renameKeys(dayName, weatherImage));
     res.status(200).json(renameKeys(dayName, weatherImage));
 }
