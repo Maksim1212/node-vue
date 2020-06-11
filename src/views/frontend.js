@@ -6,17 +6,20 @@ new Vue({
     data() {
         return {
             info: null,
+            weather: [],
+            days: [],
             city: '',
+            cityName: '',
         };
     },
     methods: {
-        // getWeather() {
-        //     console.log('Rabotaye');
-        // },
-
-        // async getWeather() {
-        //     const res = await axios.post('/weather', { city: 'Kiev' });
-        // },
+        async getWeather() {
+            const res = await axios.post('/weather', { city: `${this.city}` });
+            this.weather = res.data;
+            this.days = Object.keys(res.data);
+            this.cityName += `Weather in the city ${this.city}`;
+            console.log(this.city);
+        },
     },
     // mounted() {
     //     // axios
@@ -33,16 +36,22 @@ new Vue({
     //     });
     //     console.log('89898');
     // },
-    mounted: function() {
-            axios
-                .post("/weather", {
-                    city: "Kiev"
-                })
-                .then((response) => {
-                    console.log(response.data)
-                }).catch((error) => {
-                    console.log(error);
-                });
-        }
-        //
+    // mounted: function() {
+    //     // axios
+    //     //     .post("/weather", {
+    //     //         city: "Kiev"
+    //     //     })
+    //     //     .then((response) => {
+    //     //         console.log(response.data)
+    //     //     }).catch((error) => {
+    //     //         console.log(error);
+    //     //     });
+    // },
+    // template: `
+
+    //     <div>
+
+    //     <button v-on:click="search()">xxx</button>
+    //     </div>`,
+    //
 });
