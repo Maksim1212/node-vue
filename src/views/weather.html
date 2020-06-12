@@ -14,20 +14,49 @@
     <div class="container" id="app">
         <div class="navigation">
             <input v-model="city" name="city" type="text" placeholder="Enter a City" required>
-            <button @click="getWeather">GetWeather</button>
+            <button @click="getWeather">Get Weather</button>
         </div>
         <div class="results">
-            <h1>{{cityName}}</h1>
+            <!-- <h1>{{cityName}}</h1> -->
             <table class="weekDays">
-                <td v-for="day of days" class="days">
+                <td v-for="day of daysName" class="days">
                     {{day}}
                 </td>
             </table>
+
+            <table class="weekDays">
+                <td v-for="date of dates" class="days">
+                    {{date}}
+                </td>
+            </table>
+            <table class="weekDays">
+                <td v-for="description of descriptions" class="days">
+                    {{description}}
+                </td>
+            </table>
+
             <table class="weatherImages">
                 <td v-for="weatherIamgeUrl in weather" class="images">
                     <img v-bind:src="weatherIamgeUrl">
                 </td>
             </table>
+
+            <table class="weekDays">
+                <td v-for="temp of temps" class="days">
+                    {{temp}}
+                </td>
+            </table>
+            <table class="weekDays">
+                <td v-for="wind of winds" class="days">
+                    {{wind}}
+                </td>
+            </table>
+            <table class="weekDays">
+                <td v-for="humudity of humuditys" class="days">
+                    {{humudity}}
+                </td>
+            </table>
+
         </div>
 
     </div>

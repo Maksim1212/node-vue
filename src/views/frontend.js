@@ -7,17 +7,28 @@ new Vue({
         return {
             info: null,
             weather: [],
-            days: [],
+            daysName: [],
+            dates: [],
             city: '',
             cityName: '',
+            descriptions: [],
+            temps: [],
+            humuditys: [],
+            winds: [],
         };
     },
     methods: {
         async getWeather() {
             const res = await axios.post('/weather', { city: `${this.city}` });
-            this.weather = res.data;
-            this.days = Object.keys(res.data);
-            this.cityName += `Weather in the city ${this.city}`;
+            this.weather = res.data.image;
+            this.daysName = Object.keys(res.data.date);
+            this.dates = res.data.date;
+            this.descriptions = res.data.description;
+            this.temps = res.data.temp;
+            this.humuditys = res.data.humudity;
+            this.winds = res.data.wind;
+            console.log(res.data);
+            // this.cityName += this.city;
             // console.log(this.city);
         },
     },
