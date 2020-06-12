@@ -11,13 +11,23 @@
 </head>
 
 <body>
+
     <div class="container" id="app">
         <div class="navigation">
-            <input v-model="city" name="city" type="text" placeholder="Enter a City" required>
-            <button @click="getWeather">Get Weather</button>
+            <template>
+            <form @submit.prevent="getWeather()">
+              <input v-model="city" type="text" required>
+              <button type="submit">
+                Get Weather
+              </button>
+            </form>
+          </template>
         </div>
+
+
+
         <div class="results">
-            <!-- <h1>{{cityName}}</h1> -->
+            <h1>{{errorMessage}}</h1>
             <table class="weekDays">
                 <td v-for="day of daysName" class="days">
                     {{day}}
