@@ -9,7 +9,6 @@ new Vue({
     data() {
         return {
             info: null,
-            showModal: false,
             weather: [],
             daysName: [],
             dates: [],

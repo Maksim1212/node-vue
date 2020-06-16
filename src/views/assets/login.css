@@ -1,0 +1,203 @@
+body {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    background: #FFFFFF
+}
+
+.background {
+    background-repeat: no-repeat;
+    background-image: url("../images/background.png");
+    background-attachment: fixed;
+    position: absolute;
+    width: 2020px;
+    height: 1349px;
+    left: -84px;
+    top: -35px;
+}
+
+.logo {
+    position: absolute;
+    width: 154.77px;
+    height: 50px;
+    left: 240px;
+    top: 60px;
+}
+
+.welcome {
+    position: absolute;
+    width: 541px;
+    height: 60px;
+    left: 240px;
+    top: 343px;
+    font-family: Qwigley;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 180px;
+    line-height: 225px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.great {
+    position: absolute;
+    width: 220px;
+    height: 18px;
+    left: 240px;
+    top: 447px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.email {
+    position: absolute;
+    width: 420px;
+    height: 60px;
+    left: 240px;
+    top: 565px;
+    background: #C4C4C4;
+    opacity: 0.3;
+    border-radius: 40px;
+}
+
+.email-form-control {
+    position: absolute;
+    width: 280px;
+    height: 14px;
+    left: 294px;
+    top: 588px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.email-logo {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 260px;
+    top: 585px;
+}
+
+.password {
+    position: absolute;
+    width: 420px;
+    height: 60px;
+    left: 240px;
+    top: 649px;
+}
+
+.password-logo {
+    position: absolute;
+    width: 12px;
+    height: 22px;
+    left: 264px;
+    top: 668px;
+}
+
+.password-form-control {
+    position: absolute;
+    width: 280px;
+    height: 14px;
+    left: 294px;
+    top: 672px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.button {
+    position: absolute;
+    width: 420px;
+    height: 60px;
+    left: 240px;
+    top: 733px;
+    background: #09ECB5;
+    opacity: 0.3;
+    border-radius: 40px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+
+/* 
+.button-style {
+    position: absolute;
+    width: 104px;
+    height: 14px;
+    left: 398px;
+    top: 756px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+} */
+
+.span-message {
+    position: absolute;
+    width: 191px;
+    height: 14px;
+    left: 240px;
+    top: 840px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.sign-up {
+    position: absolute;
+    width: 180px;
+    height: 60px;
+    left: 480px;
+    top: 817px;
+    background: #09ECB5;
+    opacity: 0.3;
+    border-radius: 40px;
+}
+
+.sign-up-text {
+    position: relative;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #E5E5E5;
+}
