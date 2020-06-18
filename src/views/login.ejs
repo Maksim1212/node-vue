@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/src/views/assets/test.css">
+    <link href='https://fonts.googleapis.com/css?family=Qwigley' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="background">
+        <div class="logo">
+            <!-- <img src="images/logo.svg"> -->
+        </div>
+        <div class="welcome">
+            Welcome!
+        </div>
+        <div class="great">
+            today will be great.
+        </div>
+
+        <form method="POST" action="/v1/auth/login">
+            <div class="email-logo">
+                <!-- <img src="images/email.svg" class="email-logo"> -->
+            </div>
+            <input type="email" name="email" class="email" placeholder="Email">
+
+
+            <div>
+                <div class="password-logo">
+                    <!-- <img src="images/key.svg" class="password-logo"> -->
+                </div>
+                <input type="password" name="password" class="password" id="passInput" placeholder="Password">
+                <div class="password-logo2"> <img src="/src/views//images/view-pass.svg" onclick="showPass()"></div>
+            </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <div>
+                <input type="submit" value="Get started" class="login">
+            </div>
+
+            <div class="error">
+                <% if (typeof errors !== 'undefined') { %>
+                    <div>
+                        <% errors.forEach(error => { %>
+                            <%= error.message %>
+                                <% }) %>
+                    </div>
+                    <% } %>
+            </div>
+        </form>
+        <div class="message">
+            Don`t have an account?
+        </div>
+        <div class="">
+            <form method="GET" action="/v1/auth/register">
+                <button class="register">Sign up</button>
+            </form>
+        </div>
+
+    </div>
+    <script src="/src/views/scripts/showPass.js"></script>
+</body>
+
+</html>
