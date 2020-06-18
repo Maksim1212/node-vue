@@ -1,15 +1,19 @@
+html {
+    /* overflow: hidden; */
+}
+
 body {
-    position: fixed;
+    position: relative;
     width: 1920px;
     height: 1080px;
     background: #FFFFFF;
 }
 
 .background {
-    background-repeat: no-repeat;
     background-image: url("../images/background.png");
+    background-repeat: no-repeat;
     background-attachment: fixed;
-    position: absolute;
+    position: relative;
     width: 2020px;
     height: 1349px;
     left: -84px;
@@ -57,64 +61,54 @@ body {
 }
 
 .email {
+    border: none;
     outline: none;
     position: absolute;
     width: 420px;
     height: 60px;
     left: 240px;
-    top: 565px;
+    top: 566px;
     opacity: 0.3;
     border-radius: 40px;
     font-family: Ubuntu;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
-    line-height: 21px;
-    text-align: center;
+    line-height: 22px;
+    text-indent: 50px;
 }
-
-
-/* .email-input {
-    position: absolute;
-    width: 280px;
-    height: 14px;
-    left: 294px;
-    top: 588px;
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    color: #FFFFFF;
-} */
 
 .email-logo {
     position: absolute;
     width: 20px;
     height: 20px;
     left: 260px;
-    top: 585px;
+    top: 588px;
 }
 
 .password {
+    border: none;
     position: absolute;
     width: 420px;
     height: 60px;
     left: 240px;
-    top: 649px;
+    top: 650px;
     opacity: 0.3;
     border-radius: 40px;
-    text-align: center;
     font-family: Ubuntu;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
-    line-height: 21px;
+    line-height: 22px;
     display: flex;
     align-items: center;
     outline: none;
+    text-indent: 50px;
+}
+
+::-webkit-input-placeholder {
+    /* Chrome */
+    color: black;
 }
 
 .password-logo {
@@ -122,7 +116,7 @@ body {
     width: 12px;
     height: 22px;
     left: 264px;
-    top: 668px;
+    top: 672px;
 }
 
 .password-logo2 {
@@ -131,7 +125,7 @@ body {
     width: 22px;
     height: 18px;
     left: 618px;
-    top: 670px;
+    top: 674px;
 }
 
 .login {
@@ -139,9 +133,8 @@ body {
     width: 420px;
     height: 60px;
     left: 240px;
-    top: 733px;
-    background: #09ECB5;
-    opacity: 0.4;
+    top: 734px;
+    background: rgb(1, 104, 78);
     border-radius: 40px;
     font-family: Ubuntu;
     font-style: normal;
@@ -151,6 +144,8 @@ body {
     align-items: center;
     text-align: center;
     outline: none;
+    color: white;
+    border: none;
 }
 
 .message {
@@ -175,9 +170,8 @@ body {
     height: 60px;
     left: 480px;
     top: 817px;
-    background: #09ECB5;
+    background: rgb(1, 104, 78);
     outline: none;
-    opacity: 0.4;
     border-radius: 40px;
     font-family: Ubuntu;
     font-style: normal;
@@ -186,22 +180,176 @@ body {
     line-height: 21px;
     align-items: center;
     text-align: center;
+    color: rgb(255, 255, 255);
+    border: none;
 }
 
-
-/* .register-href {
-    position: absolute;
-    width: 60px;
-    height: 14px;
-    left: 540px;
-    top: 840px;
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #E5E5E5;
-} */
+@media only screen and (max-width: 1100px) {
+    body {
+        position: relative;
+        width: 375px;
+        height: 812px;
+        left: 256px;
+        background: #FFFFFF;
+    }
+    .background {
+        position: absolute;
+        width: 1449px;
+        height: 969px;
+        left: -264px;
+        top: -8px;
+        background: url("../images/background.png");
+    }
+    .logo {
+        position: absolute;
+        width: 154.77px;
+        height: 50px;
+        left: 14px;
+        top: 47px;
+    }
+    .welcome {
+        position: absolute;
+        width: 397px;
+        height: 44px;
+        left: 14px;
+        top: 188px;
+        font-family: Qwigley;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 132px;
+        line-height: 165px;
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+    }
+    .great {
+        position: absolute;
+        width: 198px;
+        height: 14px;
+        left: 14px;
+        top: 274px;
+        font-family: Ubuntu;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 23px;
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+    }
+    .email {
+        border: none;
+        outline: none;
+        position: absolute;
+        width: 347px;
+        height: 60px;
+        left: 14px;
+        top: 388px;
+        opacity: 0.3;
+        border-radius: 40px;
+        font-family: Ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        text-indent: 50px;
+    }
+    .email-logo {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 34px;
+        top: 408px;
+    }
+    .password {
+        border: none;
+        position: absolute;
+        width: 347px;
+        height: 60px;
+        left: 14px;
+        top: 472px;
+        opacity: 0.3;
+        border-radius: 40px;
+        font-family: Ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+        outline: none;
+        text-indent: 50px;
+    }
+     ::-webkit-input-placeholder {
+        /* Chrome */
+        color: black;
+    }
+    .password-logo {
+        position: absolute;
+        width: 12px;
+        height: 22px;
+        left: 38px;
+        top: 491px;
+    }
+    .password-logo2 {
+        /* background-image: url("../images/view-pass.svg"); */
+        position: absolute;
+        width: 22px;
+        height: 18px;
+        left: 319px;
+        top: 494px;
+    }
+    .login {
+        position: absolute;
+        width: 347px;
+        height: 60px;
+        left: 14px;
+        top: 555px;
+        background: rgb(1, 104, 78);
+        border-radius: 40px;
+        font-family: Ubuntu;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+        align-items: center;
+        text-align: center;
+        outline: none;
+        color: white;
+        border: none;
+    }
+    .message {
+        position: absolute;
+        width: 191px;
+        height: 14px;
+        left: 14px;
+        top: 655px;
+        font-family: Ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 21px;
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+    }
+    .register {
+        position: absolute;
+        width: 159px;
+        height: 60px;
+        left: 211px;
+        top: 634px;
+        background: rgb(1, 104, 78);
+        outline: none;
+        border-radius: 40px;
+        font-family: Ubuntu;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        align-items: center;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        border: none;
+    }
+}
