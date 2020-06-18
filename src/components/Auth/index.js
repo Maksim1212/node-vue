@@ -168,7 +168,6 @@ async function login(req, res, next) {
  */
 async function logout(req, res, next) {
     try {
-        console.log('logout');
         await AuthUserService.logout(req.session.user['_id']);
         delete req.session.user;
         return res.status(200).redirect('/v1/auth/login');
