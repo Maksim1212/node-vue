@@ -5,41 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="/src/views/assets/weather-styles.css">
+    <link rel="stylesheet" type="text/css" href="/src/views/assets/weather.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
     <title>Weather</title>
 </head>
 
 <body>
 
     <div class="container" id="app">
-        <div class="logo"></div>
-        <div>
+        <div class="navigation">
             <template>
             <form @submit.prevent="getWeather()">
-              <input class="city-input" v-model="city" type="text" required placeholder="Enter a city">
-              <button type="submit" class="button-search">
+              <input v-model="city" type="text" required>
+              <button type="submit">
                 Get Weather
               </button>
             </form>
           </template>
 
+
+
         </div>
 
-        <div class="search-error">{{errorMessage}}</div>
         <div class="results">
+            <h1>{{errorMessage}}</h1>
 
             <table class="weekDays">
                 <td v-for="day of daysName" class="days">
-                    <!-- {{day}} -->
-                    <a href="/weather/more"> {{day}}</a>
+                    <!--  {{day}} -->
+                    <a href="wdwdwdw"> {{day}}</a>
                 </td>
             </table>
 
-            <table class="date">
+            <table class="weekDays">
                 <td v-for="date of dates" class="days">
-                    <img src="/src/views/images/date.svg" class="date-image">{{date}}
+                    {{date}}
+                </td>
+            </table>
+            <table class="weekDays">
+                <td v-for="description of descriptions" class="days">
+                    {{description}}
                 </td>
             </table>
 
@@ -47,29 +52,24 @@
                 <td v-for="weatherIamgeUrl in weather" class="images">
                     <img v-bind:src="weatherIamgeUrl">
                 </td>
-
             </table>
 
-            <table class="description">
-                <td v-for="description of descriptions" class="description">
-                    {{description}}
-                </td>
-            </table>
-            <table class="temp">
+            <table class="weekDays">
                 <td v-for="temp of temps" class="days">
-                    Temperature: {{temp}} C
+                    {{temp}}
                 </td>
             </table>
-            <table class="humudity">
-                <td v-for="humidity of humuditys" class="days">
-                    <img src="/src/views/images/drop.svg" class="drop-image"> Humidity: {{humidity}} %
-                </td>
-            </table>
-            <table class="wind">
+            <table class="weekDays">
                 <td v-for="wind of winds" class="days">
-                    Wind speed {{wind}}
+                    {{wind}}
                 </td>
             </table>
+            <table class="weekDays">
+                <td v-for="humudity of humuditys" class="days">
+                    {{humudity}}
+                </td>
+            </table>
+
         </div>
 
     </div>

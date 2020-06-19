@@ -23,6 +23,8 @@ const weatherRouter = Router();
 
 weatherRouter.get('/', WeatherComponent.weatherPage);
 weatherRouter.post('/', WeatherComponent.getWeather);
+weatherRouter.get('/more', WeatherComponent.moreWeatherPageRender);
+weatherRouter.post('/more', WeatherComponent.getMoreWeather);
 
 
 module.exports = weatherRouter;
