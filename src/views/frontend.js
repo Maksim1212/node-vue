@@ -18,6 +18,7 @@ new Vue({
             humuditys: [],
             winds: [],
             errorMessage: '',
+            actually: false,
         };
     },
     methods: {
@@ -33,15 +34,10 @@ new Vue({
                 this.temps = res.data.temp;
                 this.humuditys = res.data.humudity;
                 this.winds = res.data.wind;
+                this.actually = res.data.actually;
             } else {
+                this.actually = res.data.actually;
                 this.errorMessage = res.data.error;
-                this.weather = [];
-                this.daysName = [];
-                this.dates = [];
-                this.descriptions = [];
-                this.temps = [];
-                this.humuditys = [];
-                this.winds = [];
             }
         },
     },

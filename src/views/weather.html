@@ -28,7 +28,7 @@
         </div>
 
         <div class="search-error">{{errorMessage}}</div>
-        <div class="results">
+        <div class="results" v-show="actually">
 
             <table class="weekDays">
                 <td v-for="day of daysName" class="days">

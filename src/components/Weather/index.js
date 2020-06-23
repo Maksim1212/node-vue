@@ -13,6 +13,7 @@ let weatherObj = {
     description: null,
     wind: null,
     error: null,
+    actually: false,
 };
 
 function weatherPage(req, res, next) {
@@ -96,7 +97,6 @@ async function getWeather(req, res, next) {
         const weatherDescription = renameKeys(dayName, weatherDesc);
         const weaytherWind = renameKeys(dayName, wind);
 
-
         weatherObj = {
             date: weatherDate,
             image: weatherImg,
@@ -104,6 +104,7 @@ async function getWeather(req, res, next) {
             humudity: weatherHumudity,
             description: weatherDescription,
             wind: weaytherWind,
+            actually: true,
         };
         // res.status(200).json(renameKeys(dayName, weatherImage));
         // console.log('try');
@@ -111,6 +112,8 @@ async function getWeather(req, res, next) {
     } catch (error) {
         console.log('catch');
         weatherObj.error = 'Entered city not found';
+        weatherObj.actually = false;
+        console.log(weatherObj);
         res.status(200).json(weatherObj);
 
         return next(error);
