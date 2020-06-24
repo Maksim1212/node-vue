@@ -26,9 +26,10 @@ const userRouter = Router();
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
  */
-// userRouter.get('/', isAuthPasport, csrfProtection, UserComponent.findAll);
-userRouter.get('/', isAuthJWT, csrfProtection, UserComponent.findAll);
+userRouter.get('/', UserComponent.usersPageRender);
+// userRouter.get('/', isAuthJWT, csrfProtection, UserComponent.findAll);
 
+userRouter.get('/data', UserComponent.findAll);
 /**
  * Route serving a user
  * @name /v1/users/:id
@@ -47,8 +48,8 @@ userRouter.get('/:id', csrfProtection, UserComponent.findById);
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware
  */
-// router.post('/create', UserComponent.create);
-userRouter.post('/', isAuthJWT, csrfProtection, UserComponent.create);
+// userRouter.post('/', isAuthJWT, csrfProtection, UserComponent.create);
+userRouter.post('/', UserComponent.create);
 /**
  * Route serving a new user
  * @name /v1/users

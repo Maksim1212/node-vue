@@ -11,15 +11,27 @@ const defaultError = 'An error has occurred';
  * @param {express.NextFunction} next
  * @returns {Promise < void >}
  */
+
+async function usersPageRender(req, res, next) {
+    try {
+        return res.status(200).render('users.html', {
+            errors: req.flash('error'),
+        });
+    } catch (error) {
+        req.flash('error', { message: defaultError });
+        return next(error);
+    }
+}
+
 async function findAll(req, res, next) {
     try {
         const users = await UserService.findAll();
 
-        return res.render('index.ejs', {
+        return res.status(200).json(
             users,
-            csrfToken: req.csrfToken(),
-            errors: req.flash('error'),
-        });
+            // csrfToken: req.csrfToken(),
+            // errors: req.flash('error'),
+        );
     } catch (error) {
         req.flash('error', { message: defaultError });
 
@@ -79,8 +91,7 @@ async function create(req, res, next) {
         }
 
         await UserService.create(req.body);
-
-        return res.redirect(200, '/v1/users');
+        return findAll();
     } catch (error) {
         if (error instanceof ValidationError) {
             req.flash('error', error.message);
@@ -158,6 +169,7 @@ async function deleteById(req, res, next) {
 }
 
 module.exports = {
+    usersPageRender,
     findAll,
     findById,
     create,

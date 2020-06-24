@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <title>Weather</title>
+</head>
+
+<body>
+
+    <div class="container" id="app">
+        <td>
+            <!-- Create user-->
+            <!-- Modal Trigger -->
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Add New user</a>
+        </td>
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <form @submit.prevent="addUser()">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="email" v-model="email" name="email" type="email">
+                            <input placeholder="user Full Name" v-model="fullName" name="fullName" type="text">
+                            <!-- <input type="hidden" name="_csrf" value="{{csrfToken}}"> -->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="modal-close waves-effect waves-green btn-flat" style="background-color: #26a69a;">Cancel</a>
+                        <input class="modal-close waves-effect waves-green btn-flat" type="submit" value="Create">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="">
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>ID</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <tr v-for="(user,index) of users">
+                    <td>{{ index + 1 }}</td>
+                    <td>{{user.fullName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user._id}}</td>
+                    <td>
+                        <!-- UPDATE user-->
+                        <!-- Modal Trigger -->
+                        <a class="waves-effect waves-light btn modal-trigger" v-bind:href="'#modal2' +  index">update</a>
+                    </td>
+
+                    <div id="modal21" class="modal">
+                        <div class="modal-content">
+                            <form @submit.prevent="updateUser()">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input type="hidden" placeholder="userID" v-model="userId" name="id" value=`${users[index]._id}`>
+                                        <input placeholder="user.fullname" v-model="fullName" name="fullName" value=`${users[index].fullName}` type="text">
+
+                                        <!-- <input type="hidden" name="_csrf" value=`${csrfToken}`> -->
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <a class="modal-close waves-effect waves-green btn-flat" style="background-color: #26a69a;">Cancel</a>
+                                    <input type="submit" value="update">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <td>
+                        <!-- Delete user-->
+                        <!-- Modal Trigger -->
+                        <a class="waves-effect waves-light btn modal-trigger" v-bind:href="'#modal3'+ index">delete</a>
+                    </td>
+
+                    <!-- <div :id="'modal3' + index" class="modal">
+                        <div class="modal-content">
+                            <p>
+                                User {{user[index].fullname}} will be deleted, you confirm this action ?
+                            </p>
+                            <form @submit.prevent="deleteUser()">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input type="hidden" placeholder="userID" name="id" v-model="userId" value=`${users[index]._id}`>
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <a class="modal-close waves-effect waves-green btn-flat" style="background-color: #26a69a;">Сancel</a>
+                                    <input type="submit" value="delete">
+                                </div>
+                            </form>
+                        </div>
+                    </div> -->
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.modal').modal();
+        });
+    </script>
+    <script type="module" src="/src/views/users.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>

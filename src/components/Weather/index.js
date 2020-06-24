@@ -113,7 +113,6 @@ async function getWeather(req, res, next) {
         console.log('catch');
         weatherObj.error = 'Entered city not found';
         weatherObj.actually = false;
-        console.log(weatherObj);
         res.status(200).json(weatherObj);
 
         return next(error);
