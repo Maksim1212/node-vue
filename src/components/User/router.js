@@ -58,7 +58,7 @@ userRouter.post('/', UserComponent.create);
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware
  */
-userRouter.put('/', csrfProtection, UserComponent.updateById);
+userRouter.put('/', UserComponent.updateById);
 
 /**
  * Route serving a new user

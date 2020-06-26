@@ -54,6 +54,23 @@
             </div>
         </div>
 
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <form @submit.prevent="updateUser()">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input type="hidden" placeholder="userId" v-model="userId" name="id">
+                            <input placeholder="fullName" v-model="fullName" name="fullName">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="modal-close waves-effect waves-green btn-flat" v-on:click="fullName = ''; userId = ''" style="background-color: #26a69a;">Cancel</a>
+                        <input type="submit" value="update">
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <div id="modal3" class="modal">
             <div class="modal-content">
                 <form @submit.prevent="deleteUser()">
@@ -63,11 +80,11 @@
 
                     <div class="row">
                         <div class="input-field col s6">
-                            <input placeholder="userId" name="id" v-model="userId">
+                            <input type="hidden" placeholder="userId" name="id" v-model="userId">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <a class="modal-close waves-effect waves-green btn-flat" style="background-color: #26a69a;">Сancel</a>
+                        <a class="modal-close waves-effect waves-green btn-flat" style="background-color: #26a69a;" v-on:click="fullName = ''; userId = ''">Сancel</a>
                         <input class="modal-close waves-effect waves-green btn-flat" style="background-color: #26a69a;" type="submit" value="delete">
                     </div>
                 </form>
@@ -96,26 +113,8 @@
                         <td>
                             <!-- UPDATE user-->
                             <!-- Modal Trigger -->
-                            <a class="waves-effect waves-light btn modal-trigger" v-on:click="fullName += user.fullName" href="#modal2">update</a>
+                            <a class="waves-effect waves-light btn modal-trigger" v-on:click="userId += user._id;fullName += user.fullName" href="#modal2">update</a>
                         </td>
-
-                        <div id="modal2" class="modal">
-                            <div class="modal-content">
-                                <form @submit.prevent="updateUser()">
-                                    <div class="row">
-                                        <div class="input-field col s6">
-                                            <input type="hidden" placeholder="userID" v-model="userId" name="id" value=`${users[index]._id}`>
-                                            <input :placeholder="fullName" v-model="fullName" name="fullName" value=`${users[index].fullName}` type="text">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a class="modal-close waves-effect waves-green btn-flat" v-on:click="fullName = ''" style="background-color: #26a69a;">Cancel</a>
-                                        <input type="submit" value="update">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
                         <td>
                             <!-- Delete user-->
                             <!-- Modal Trigger -->

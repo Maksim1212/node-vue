@@ -34,12 +34,11 @@ new Vue({
             }
         },
         async updateUser() {
-            const res = await axios.post('/v1/users?_method=PUT', { fullName: `${this.fullName}` });
-            return this.findAll();
+            const res = await axios.post('/v1/users?_method=PUT', { id: `${this.userId}`, fullName: `${this.fullName}` });
+            // return this.findAll();
         },
         async deleteUser() {
             const res = await axios.post('/v1/users?_method=DELETE', { id: `${this.userId}` });
-
             // console.log('delete');
         },
     },
