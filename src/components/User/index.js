@@ -151,10 +151,10 @@ async function deleteById(req, res, next) {
         if (error) {
             throw new ValidationError(error.details);
         }
-
+        // console.log(req.body);
         await UserService.deleteById(req.body.id);
 
-        return res.redirect(200, '/v1/users');
+        return res.status(200);
     } catch (error) {
         if (error instanceof ValidationError) {
             req.flash('error', error.message);

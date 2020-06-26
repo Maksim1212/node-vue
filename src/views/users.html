@@ -54,73 +54,77 @@
             </div>
         </div>
 
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <form @submit.prevent="deleteUser()">
+                    <p>
+                        User {{fullName}} will be deleted, you confirm this action ?
+                    </p>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="userId" name="id" v-model="userId">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="modal-close waves-effect waves-green btn-flat" style="background-color: #26a69a;">Сancel</a>
+                        <input class="modal-close waves-effect waves-green btn-flat" style="background-color: #26a69a;" type="submit" value="delete">
+                    </div>
+                </form>
+            </div>
+        </div>
+
 
         <div class="">
             <table>
-                <tr>
-                    <th>#</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>ID</th>
-                    <th>Update</th>
-                    <th>Delete</th>
-                </tr>
-                <tr v-for="(user,index) of users">
-                    <td>{{ index + 1 }}</td>
-                    <td>{{user.fullName}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user._id}}</td>
-                    <td>
-                        <!-- UPDATE user-->
-                        <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn modal-trigger" v-bind:href="'#modal2' +  index">update</a>
-                    </td>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>ID</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(user,index) of users" :key="user.id">
+                        <td>{{ index + 1 }}</td>
+                        <td>{{user.fullName}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user._id}}</td>
+                        <td>
+                            <!-- UPDATE user-->
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light btn modal-trigger" v-on:click="fullName += user.fullName" href="#modal2">update</a>
+                        </td>
 
-                    <div id="modal21" class="modal">
-                        <div class="modal-content">
-                            <form @submit.prevent="updateUser()">
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input type="hidden" placeholder="userID" v-model="userId" name="id" value=`${users[index]._id}`>
-                                        <input placeholder="user.fullname" v-model="fullName" name="fullName" value=`${users[index].fullName}` type="text">
-
-                                        <!-- <input type="hidden" name="_csrf" value=`${csrfToken}`> -->
+                        <div id="modal2" class="modal">
+                            <div class="modal-content">
+                                <form @submit.prevent="updateUser()">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input type="hidden" placeholder="userID" v-model="userId" name="id" value=`${users[index]._id}`>
+                                            <input :placeholder="fullName" v-model="fullName" name="fullName" value=`${users[index].fullName}` type="text">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <a class="modal-close waves-effect waves-green btn-flat" style="background-color: #26a69a;">Cancel</a>
-                                    <input type="submit" value="update">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <td>
-                        <!-- Delete user-->
-                        <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn modal-trigger" v-bind:href="'#modal3'+ index">delete</a>
-                    </td>
-
-                    <!-- <div :id="'modal3' + index" class="modal">
-                        <div class="modal-content">
-                            <p>
-                                User {{user[index].fullname}} will be deleted, you confirm this action ?
-                            </p>
-                            <form @submit.prevent="deleteUser()">
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input type="hidden" placeholder="userID" name="id" v-model="userId" value=`${users[index]._id}`>
-
+                                    <div class="modal-footer">
+                                        <a class="modal-close waves-effect waves-green btn-flat" v-on:click="fullName = ''" style="background-color: #26a69a;">Cancel</a>
+                                        <input type="submit" value="update">
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <a class="modal-close waves-effect waves-green btn-flat" style="background-color: #26a69a;">Сancel</a>
-                                    <input type="submit" value="delete">
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
-                    </div> -->
-                </tr>
+
+                        <td>
+                            <!-- Delete user-->
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light btn modal-trigger" v-on:click="userId += user._id; fullName += user.fullName" href="#modal3">delete</a>
+                        </td>
+
+
+                    </tr>
+                </tbody>
             </table>
 
         </div>

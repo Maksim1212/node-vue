@@ -68,6 +68,6 @@ userRouter.put('/', csrfProtection, UserComponent.updateById);
  * @param {string} path -Express path
  * @param {callback} middleware - Express middleware
  */
-userRouter.delete('/', csrfProtection, UserComponent.deleteById);
+userRouter.delete('/', UserComponent.deleteById);
 
 module.exports = userRouter;

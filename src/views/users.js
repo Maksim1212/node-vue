@@ -8,9 +8,11 @@ new Vue({
     el: '#app',
     data() {
         return {
+            counter: 0,
             email: '',
             fullName: '',
             userId: '',
+            index: '',
             emails: [],
             fullNames: [],
             resData: [],
@@ -21,6 +23,7 @@ new Vue({
         async addUser() {
             const res = await axios.post('/v1/users/', { email: `${this.email}`, fullName: `${this.fullName}` });
             return this.findAll();
+            // console.log('Add');
         },
         async findAll() {
             const res = await axios.get('/v1/users/data', {});
@@ -35,8 +38,9 @@ new Vue({
             return this.findAll();
         },
         async deleteUser() {
-            const res = await axios.post('/v1/users?_method=DELETE', { userId: `${this.userId}` });
-            return this.findAll();
+            const res = await axios.post('/v1/users?_method=DELETE', { id: `${this.userId}` });
+
+            // console.log('delete');
         },
     },
     async mounted() {
