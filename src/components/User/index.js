@@ -91,15 +91,20 @@ async function create(req, res, next) {
         }
 
         await UserService.create(req.body);
-        return findAll();
+        return res.status(200).json({
+            message: 'user added successfully',
+        });
     } catch (error) {
         if (error instanceof ValidationError) {
             req.flash('error', error.message);
-            return res.redirect('/v1/users');
+            return res.status(201).json({
+                message: req.flash('error', error.message.data),
+            });
         }
         if (error.name === 'MongoError') {
-            req.flash('error', { message: dbError });
-            return res.redirect('/v1/users');
+            return res.status(202).json({
+                message: dbError,
+            });
         }
         return next(error);
     }
@@ -151,18 +156,22 @@ async function deleteById(req, res, next) {
         if (error) {
             throw new ValidationError(error.details);
         }
-        // console.log(req.body);
         await UserService.deleteById(req.body.id);
-
-        return res.status(200);
+        return res.status(200).json({
+            message: 'user deleted successfully',
+        });
     } catch (error) {
         if (error instanceof ValidationError) {
             req.flash('error', error.message);
-            return res.redirect('/v1/users');
+            return res.status(201).json({
+                message: req.flash('error', error.message.data),
+            });
         }
         if (error.name === 'MongoError') {
             console.log(req.flash('error', { message: defaultError }));
-            return res.redirect('/v1/users');
+            return res.status(202).json({
+                message: defaultError,
+            });
         }
         return next(error);
     }
