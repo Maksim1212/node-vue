@@ -16,6 +16,11 @@
     <div class="container" id="app">
         <div class="logo"></div>
         <div>
+            <form action="/v1/auth/logout" target="_blank">
+                <button class="logoutButton">LOGOUT</button>
+            </form>
+        </div>
+        <div>
             <template>
             <form @submit.prevent="getWeather()">
               <input class="city-input" v-model="city" type="text" required placeholder="Enter a city">
@@ -32,8 +37,8 @@
 
             <table class="weekDays">
                 <td v-for="day of daysName" class="days">
-                    <!-- {{day}} -->
-                    <a href="/weather/more"> {{day}}</a>
+                    {{day}}
+                    <!-- <a href="/weather/more"> {{day}}</a> -->
                 </td>
             </table>
 

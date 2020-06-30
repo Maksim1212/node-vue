@@ -141,7 +141,7 @@ async function login(req, res, next) {
                 token,
             };
             req.session.user = data;
-            return res.redirect('/v1/users/');
+            return res.redirect('/weather/');
         }
         return res.status(200);
     } catch (error) {

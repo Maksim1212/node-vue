@@ -70,8 +70,8 @@ body {
     font-family: Ubuntu;
     font-style: normal;
     font-weight: 300;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 18px;
+    line-height: 24px;
     display: flex;
     align-items: center;
     color: #FFFFFF;
@@ -244,7 +244,7 @@ body {
 
 .register-errors {
     position: absolute;
-    top: 448px;
+    top: 464px;
     left: 240px;
     color: red;
     font-family: Ubuntu;

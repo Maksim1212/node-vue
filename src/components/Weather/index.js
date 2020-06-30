@@ -119,47 +119,7 @@ async function getWeather(req, res, next) {
     }
 }
 
-function moreWeatherPageRender(req, res, next) {
-    try {
-        return res.status(200).render('more.html', {
-            errors: req.flash('error'),
-        });
-    } catch (error) {
-        req.flash('error', { message: defaultError });
-        return next(error);
-    }
-}
-async function getMoreWeather(req, res, next) {
-    const city = 'Kiev';
-    const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}
-    &units=imperial&appid=${apiKey}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    // console.log(data.cod);
-
-    let unikDays = {}; // object with sorted days
-
-    for (let i = 0; i < data.list.length; i += 1) {
-        unikDays[i] = data.list[i].dt_txt;
-    }
-    // console.log(parseFloat(Object.keys(unikDays)));
-    // console.log(unikDays);
-
-    const dayKeys = Object.keys(unikDays);
-    const dayNameObj = {};
-
-    for (let k = 0; k < dayKeys.length; k += 1) {
-        const numberDay = `${new Date(unikDays[dayKeys[k]].dt * 1000).getDay()}`; // get the day number from unix format
-        dayNameObj[k] = weekday[numberDay]; // give the numbers of the day names
-    }
-    // console.log(dayNameObj);
-}
-
-getMoreWeather('Kiev');
-
 module.exports = {
     weatherPage,
     getWeather,
-    getMoreWeather,
-    moreWeatherPageRender,
 };

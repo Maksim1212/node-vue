@@ -24,7 +24,7 @@ new Vue({
     methods: {
         async getWeather() {
             const res = await axios.post('/weather', { city: `${this.city}` });
-            console.log(res.data);
+            // console.log(res.data);
             if (!res.data.error) {
                 this.errorMessage = '';
                 this.weather = res.data.image;

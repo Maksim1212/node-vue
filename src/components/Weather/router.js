@@ -1,9 +1,9 @@
 const { Router } = require('express');
-const csrf = require('csurf');
+// const csrf = require('csurf');
 const WeatherComponent = require('../Weather');
 const { isAuthJWT } = require('../../polices/isAuth');
 
-const csrfProtection = csrf({ cookie: true });
+// const csrfProtection = csrf({ cookie: true });
 /**
  * Express router to auth user related functions on.
  * @type {Express.Router}
@@ -21,10 +21,7 @@ const weatherRouter = Router();
  */
 
 
-weatherRouter.get('/', WeatherComponent.weatherPage);
+weatherRouter.get('/', isAuthJWT, WeatherComponent.weatherPage);
 weatherRouter.post('/', WeatherComponent.getWeather);
-weatherRouter.get('/more', WeatherComponent.moreWeatherPageRender);
-weatherRouter.post('/more', WeatherComponent.getMoreWeather);
-
 
 module.exports = weatherRouter;

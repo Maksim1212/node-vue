@@ -2,6 +2,10 @@ html {
     /* overflow: hidden; */
 }
 
+body {
+    margin: 0px;
+}
+
 .container {
     position: relative;
     width: 1920px;
@@ -161,4 +165,24 @@ html {
 table {
     /* margin: 10px; */
     border-spacing: 62px 6px;
+}
+
+.logoutButton {
+    position: absolute;
+    width: 100px;
+    height: 46px;
+    left: 1200px;
+    top: 62px;
+    background: #09d7ec;
+    /* opacity: 0.3; */
+    border-radius: 40px;
+    outline: none;
+    border: none;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #FFFFFF;
 }

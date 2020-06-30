@@ -66,16 +66,6 @@ authUserRouter.get('/401', AuthUserComponent.anauthorized);
 authUserRouter.get('/403', AuthUserComponent.forbidden);
 
 /**
- * Route get user private page
- * @name /v1/auth/private
- * @function
- * @inner
- * @param {string} path - Express path
- * @param {callback} middleware - Express middleware.
- */
-authUserRouter.get('/private', AuthUserComponent.passport);
-
-/**
  * Route get user register page
  * @name /v1/auth/register
  * @function
