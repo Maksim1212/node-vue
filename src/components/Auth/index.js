@@ -228,17 +228,6 @@ async function deleteById(req, res, next) {
     }
 }
 
-/**
- * @function
- * @param {express.Request} req
- * @param {express.Response} res
- * @returns {Promise < void >}
- */
-function passport(req, res) {
-    console.log('passport');
-    return res.render('private.ejs');
-}
-
 module.exports = {
     register,
     createUser,
@@ -248,6 +237,5 @@ module.exports = {
     getJWTTokens,
     forbidden,
     anauthorized,
-    passport,
     deleteById,
 };
