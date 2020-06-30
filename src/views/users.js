@@ -34,6 +34,8 @@ new Vue({
             if (res.status === 200) {
                 this.dataMessage = 'user added successfully';
                 this.users = [];
+                this.fullName = '';
+                this.email = '';
                 this.findAll();
             } else if (res.status === 202) {
                 this.dataMessage = res.data.message;
@@ -44,14 +46,22 @@ new Vue({
         },
         async updateUser() {
             const res = await axios.post('/v1/users?_method=PUT', { id: `${this.userId}`, fullName: `${this.fullName}` });
-            this.users = [];
-            this.findAll();
+            if (res.status === 200) {
+                this.users = [];
+                this.fullName = '';
+                this.userId = '';
+                this.findAll();
+            } else if (res.status === 202) {
+                this.dataMessage = res.data.message;
+            } else { this.dataMessage = res.data.message[0].message; }
         },
         async deleteUser() {
             const res = await axios.post('/v1/users?_method=DELETE', { id: `${this.userId}` });
             if (res.status === 200) {
                 this.users = [];
                 this.findAll();
+                this.userId = '';
+                this.fullName = '';
                 this.dataMessage = res.data.message;
             } else if (res.status === 202) {
                 this.dataMessage = res.data.message;

@@ -127,15 +127,20 @@ async function updateById(req, res, next) {
 
         await UserService.updateById(req.body.id, req.body);
 
-        return res.redirect(200, '/v1/users');
+        return res.status(200).json({
+            message: 'user updated successfully',
+        });
     } catch (error) {
         if (error instanceof ValidationError) {
             req.flash('error', error.message);
-            return res.redirect('/v1/users');
+            return res.status(201).json({
+                message: req.flash('error', error.message.data),
+            });
         }
         if (error.name === 'MongoError') {
-            console.log(req.flash('error', { message: defaultError }));
-            return res.redirect('/v1/users');
+            return res.status(202).json({
+                message: defaultError,
+            });
         }
 
         return next(error);

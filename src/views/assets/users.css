@@ -1,23 +1,21 @@
-body {
-    background: linear-gradient( limegreen, transparent), linear-gradient( 90deg, skyblue, transparent), linear-gradient( -90deg, coral, transparent);
-    background-blend-mode: screen;
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
 
-div:first-child {
-    margin: 20px 0;
-    table:first-of-type {
-        margin: 15px 2px;
-        background: #ffffff !important;
-    }
-    table:last-of-type {
-        margin: 15px 2px;
-        background: #fdfdef !important;
-    }
-    .head {
-        text-align: center;
-        margin: 45px 35px;
-    }
-    .img-container {
-        text-align: center;
-    }
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.infoMess {
+    color: red;
+    text-align: center;
 }
