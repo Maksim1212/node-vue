@@ -8,7 +8,7 @@ Brown
 =================================== */
 
 body {
-    background: #795548;
+    background-image: url("../images/weather-background.png");
     font-family: 'Lato', serif;
     color: #fff;
     margin: 0;
@@ -45,8 +45,8 @@ a {
 }
 
 a:hover {
-    background: #A1887F;
-    border: 2px solid #A1887F;
+    background: rgb(83, 178, 255);
+    border: 2px solid rgb(83, 178, 255);
     width: 132px;
 }
 
