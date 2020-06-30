@@ -29,6 +29,7 @@
         "fetch": "^1.1.0",
         "fs": "0.0.1-security",
         "helmet": "3.9.0",
+        "heroku": "7.39.3",
         "isomorphic-fetch": "2.2.1",
         "jsonwebtoken": "8.5.1",
         "method-override": "3.0.0",
@@ -39,7 +40,7 @@
         "passport-local": "1.0.0",
         "request": "^2.88.2",
         "supertest": "4.0.2",
-        "uuid": "^8.1.0"
+        "uuid": "^8.2.0"
     },
     "devDependencies": {
         "cz-conventional-changelog": "3.1.0",
